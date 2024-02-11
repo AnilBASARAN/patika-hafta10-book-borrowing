@@ -61,6 +61,7 @@ public class App
         entityManager.persist(book1);
 
         // create a book borrowing
+        //ekliyorum
         BookBorrowing bookBorrowing1 = new BookBorrowing();
         bookBorrowing1.setBook(book1);
         bookBorrowing1.setBorrower_name("Anil");
