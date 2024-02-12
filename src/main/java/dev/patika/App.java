@@ -1,5 +1,5 @@
 package dev.patika;
-
+import java.time.LocalDate;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
@@ -65,6 +65,8 @@ public class App
         BookBorrowing bookBorrowing1 = new BookBorrowing();
         bookBorrowing1.setBook(book1);
         bookBorrowing1.setBorrower_name("Anil");
+        bookBorrowing1.setBorrowing_date(LocalDate.of(2024, 1, 16));
+        bookBorrowing1.setReturn_date(LocalDate.of(2024, 1, 30));
         entityManager.persist(bookBorrowing1);
 
 

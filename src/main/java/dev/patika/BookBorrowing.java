@@ -2,7 +2,7 @@ package dev.patika;
 
 import jakarta.persistence.*;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "bookborrowings")
@@ -16,7 +16,10 @@ public class BookBorrowing {
     private String borrower_name;
 
  @Column(name = "bookborrowing_return_date")
-    private Date return_date;
+    private LocalDate return_date;
+
+ @Column(name = "bookborrowing_borrowing_date")
+ private LocalDate borrowing_date;
 
  @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
  @JoinColumn(name = "bookborrowing_book_id",referencedColumnName ="book_id")
@@ -25,7 +28,13 @@ public class BookBorrowing {
     public BookBorrowing() {
     }
 
+    public LocalDate getBorrowing_date() {
+        return borrowing_date;
+    }
 
+    public void setBorrowing_date(LocalDate borrowing_date) {
+        this.borrowing_date = borrowing_date;
+    }
 
     public Book getBook() {
         return book;
@@ -51,11 +60,11 @@ public class BookBorrowing {
         this.borrower_name = borrower_name;
     }
 
-    public Date getReturn_date() {
+    public LocalDate getReturn_date() {
         return return_date;
     }
 
-    public void setReturn_date(Date return_date) {
+    public void setReturn_date(LocalDate return_date) {
         this.return_date = return_date;
     }
 }
